@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if user.wallet %}
+    <p>address: {{ wallet.address }}</p>
+    <p>잔금: {{ value }} ether</p>
+    <p>출금하기</p>
+  {% else %}
+    {{ text }}
+  <a href='{% url 'eth:create_wallet' %}'>계좌생성</a>
+  {% endif %}
+{% endblock %}

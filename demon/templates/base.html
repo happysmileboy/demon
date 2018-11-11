@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p><a href="{% url 'core:home' %}">home</a></p>
+{% if request.user.is_authenticated %}
+  <p><a href="{% url 'account_logout' %}">로그아웃</a></p>
+  <p><a href="{% url 'eth:my_wallet' %}">입금계좌</a></p>
+{% else %}
+  <p><a href="{% url 'account_login' %}">로그인</a></p>
+  <p><a href="{% url 'account_signup' %}">회원가입</a></p>
+{% endif %}
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

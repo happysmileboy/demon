@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <p>new admin wallet</p>
+  <p>seed : {{ admin_wallet.seed }}</p>
+  <p>coin : {{ admin_wallet.coin }}</p>
+  <p>address : {{ admin_wallet.address }}</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">create</button>
+  </form>
+
+{% endblock %}
