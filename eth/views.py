@@ -52,7 +52,7 @@ def create_wallet(request):
             user=user,
             parent=parentwallet,
             address=private_key.public_key.address(),
-            private_key=private_key
+            private_key=private_key.to_hex()
         )
         ctx = {
             'wallet': w
@@ -66,8 +66,9 @@ def my_wallet(request):
         user = request.user
         wallet = user.wallet
         address = wallet.address
-        value = w3.fromWei(w3.eth.getBalance(w3.toChecksumAddress(address)),'ether')
-
+        wallet.value = w3.eth.getBalance(w3.toChecksumAddress(address))
+        wallet.save()
+        value = w3.fromWei(wallet.value, 'ether')
         ctx = {
             'wallet': wallet,
             'value': value
