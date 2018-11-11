@@ -4,6 +4,7 @@
     <p>address: {{ wallet.address }}</p>
     <p>잔금: {{ value }} ether</p>
     <p>출금하기</p>
+    <p>이더스켄에서 확인하기 : <a href="https://ropsten.etherscan.io/address/{{ wallet.address }}">url<a/></p>
   {% else %}
     {{ text }}
   <a href='{% url 'eth:create_wallet' %}'>계좌생성</a>
