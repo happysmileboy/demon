@@ -42,7 +42,7 @@ pexpect==4.6.0
 pluggy==0.8.0
 protobuf==3.0.0a3
 ptyprocess==0.6.0
-py==1.7.0
+py==1.10.0
 pyaes==1.6.1
 pycodestyle==2.4.0
 pycryptodome==3.7.0
